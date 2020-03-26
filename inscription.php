@@ -33,7 +33,7 @@ if(isset($_POST['pseudo']) && isset($_POST['mdpHash']) && !empty($_POST['pseudo'
     $inscriptionOK = $queryResult->rowCount() == 1;
 
     var_dump($inscriptionOK);
-    echo 'vous vous êtes bien inscrits';
+    echo 'gg vous vous êtes bien inscrits';
     //header('Location: ./authentification.php');
     //exit;
 }
