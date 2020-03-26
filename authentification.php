@@ -21,19 +21,20 @@
 
 		if($utilisateur !== false AND password_verify(trim($_POST['mdpHash']), $utilisateur['mdpHash']))
 		{
+            echo "gg";
 			session_start();
 
 			$_SESSION['authentification'] = intval($utilisateur['id']);
                     
-			header('Location: ./monCompte.php');
-			exit;
+			//header('Location: ./monCompte.php');
+			//exit;
 		}
 		else
 		{
-
-			header('Location: ./');
-			exit;
+            echo "bg";
+			//header('Location: ./');
+			//exit;
 		}
-	}
+    }
 
 include 'authentification.phtml';
