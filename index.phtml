@@ -6,7 +6,20 @@
     <title>Blog Communautaire</title>
 </head>
 <body>
-    <a href="./inscription.php">Inscription</a> <br>
-    <a href="./authentification.php">Authentification</a>
+    <div>
+        <a href="./inscription.php">Inscription</a> <br>
+        <a href="./authentification.php">Authentification</a>
+    </div>
+    <div>
+    
+        <?php foreach($posts as $post): ?>
+            <?php var_dump($post['image'])?>
+            <div>
+                <img src="./img/<?=$post['image']?>">
+                <h2> <?= $post['titre']?></h3>
+                <a href="#"></a> <!-- méthode GET ?-->
+            </div>
+            <?php endforeach ?>
+    </div>
 </body>
 </html>

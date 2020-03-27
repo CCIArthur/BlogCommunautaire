@@ -9,8 +9,10 @@
     <p>BIENVENUE</p>
     <div>
         <form action="monCompte.php" method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">
-            <input type="file" name="fichier">
+            <input type="text" name="titre" placeholder="Titre">
+            <input type="file" name="fichier" placeholder="URL">
             <input type="hidden" name="MAX_FILE_SIZE" value="3000000">
+            <input type="text" name="contenu" placeholder="Contenu">
             <button type="submit">Envoyer</button>
         </form>
     </div>

@@ -1,5 +1,5 @@
 <?php
-
+var_dump($_POST);
 	if(!empty($_POST))
 	{
 		$connexionBDD = new PDO
@@ -25,7 +25,7 @@
 			session_start();
 
 			$_SESSION['authentification'] = intval($utilisateur['id']);
-                    
+            var_dump($_SESSION);
 			//header('Location: ./monCompte.php');
 			//exit;
 		}
