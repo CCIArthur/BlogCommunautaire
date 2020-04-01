@@ -46,13 +46,46 @@ $connexionBDD = new PDO
     }
     //var_dump($_FILES);
     
-    $query = 'INSERT INTO posts (titre, contenu, image, idAuteur) VALUES(?, ?, ?, ?)';
+
+    $query = 'SELECT * from posts WHERE idAuteur = ? ORDER BY datePublication DESC';
     $sth = $connexionBDD -> prepare($query);
-    $sth -> bindValue(1, $titre, PDO::PARAM_STR);
-    $sth -> bindValue(2, $contenu, PDO::PARAM_STR);
-    $sth -> bindValue(3, $image, PDO::PARAM_STR);
-    $sth -> bindValue(4, $_SESSION['authentification'], PDO::PARAM_STR);
-    $sth -> execute();
+    $sth -> execute([1 => $_SESSION[/*id de l'utilisateur*/]]);
+    $posts = $sth -> fetchAll();
+    var_dump($posts);
+
+
+    //ajouter un post
+    if(isset($_POST['ajouter']))
+    {
+        $query = 'INSERT INTO posts (titre, contenu, image, idAuteur) VALUES(?, ?, ?, ?)';
+        $sth = $connexionBDD -> prepare($query);
+        $sth -> bindValue(1, $titre, PDO::PARAM_STR);
+        $sth -> bindValue(2, $contenu, PDO::PARAM_STR);
+        $sth -> bindValue(3, $image, PDO::PARAM_STR);
+        $sth -> bindValue(4, $_SESSION['authentification'], PDO::PARAM_STR);
+        $sth -> execute();
+    }
+
+
+    //supprimer un post
+    if(isset($_POST['supprimer']))
+    {
+        foreach($posts as $post)
+        {
+            $idPost = $post['id'];
+        }
+        $query 'DELETE * FROM posts WHERE id = ?';
+        $sth = $connexionBDD -> prepare($query);
+        $sth -> bindParam('?', $idPost, PDO::PARAM_STR);
+        $sth -> execute();
+    }
+
+    //modifier un post
+    if(isset($_POST['modifier']))
+    {
+        //ouvrir une page pour avec toutes les infos necessaire a la création de l'article ?
+        // quand tout OK, bouton submit -> supprime l'ancien post, et crée celui ci.
+    }
 
 //} fin du else
     include 'monCompte.phtml';

@@ -18,6 +18,7 @@ $query =
 
 $sth = $connexionBDD -> query($query);
 $posts = $sth -> fetchAll();
+//var_dump($posts);
 
 session_start();
 

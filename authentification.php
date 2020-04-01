@@ -25,7 +25,7 @@ var_dump($_POST);
 			session_start();
 
 			$_SESSION['authentification'] = intval($utilisateur['id']);
-            var_dump($_SESSION);
+            //var_dump($_SESSION);
 			//header('Location: ./monCompte.php');
 			//exit;
 		}

@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
     <title>Blog Communautaire</title>
 </head>
 <body>
-    <div>
+    <header>
         <a href="./inscription.php">Inscription</a> <br>
         <a href="./authentification.php">Authentification</a>
-    </div>
+    </header>
+    <h2>Blog communautaire</h2>
     <div>
-    
-        <?php foreach($posts as $post): ?>
+        <p>Posts récents</p>
+        <div class="post">
+            <?php foreach($posts as $post): ?>
             <?php var_dump($post['image'])?>
-            <div>
+            <div class="blanc">
                 <img src="./img/<?=$post['image']?>">
-                <h2> <?= $post['titre']?></h3>
-                <a href="#"></a> <!-- méthode GET ?-->
+                <h3> <?= $post['titre']?></h3>
+                <h4> <?= $post['datePublication']?></h3>
+                <a href="#">Détails post</a> <!-- méthode GET ?? -->
             </div>
             <?php endforeach ?>
+        </div>
     </div>
 </body>
 </html>

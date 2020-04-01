@@ -6,15 +6,27 @@
     <title>Mon compte</title>
 </head>
 <body>
-    <p>BIENVENUE</p>
+    <h2>BIENVENUE</h2>
     <div>
+    <h3>Ajouter un article</h3>
         <form action="monCompte.php" method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">
             <input type="text" name="titre" placeholder="Titre">
-            <input type="file" name="fichier" placeholder="URL">
+            <input type="file" name="image" placeholder="URL">
             <input type="hidden" name="MAX_FILE_SIZE" value="3000000">
             <input type="text" name="contenu" placeholder="Contenu">
-            <button type="submit">Envoyer</button>
+            <button type="submit" name="ajouter">Ajouter</button>
         </form>
+    </div>
+    <div>
+        <?php foreach($posts as $post):?>
+            <div>
+                <h3><?=$post['titre'];?></h2>
+                <img src="./img/<?=$post['image'];?>">
+                <h4><?=$post['datePublication'];?></h3>
+                <button type="submit" name="modifier">Modifier</button> <!--pas relié encore-->
+                <button type="submit" name="supprimer">Supprimer</button>
+            </div>
+        <?php endforeach; ?>
     </div>
     <footer>
         <a href="./">Accueil</a>
